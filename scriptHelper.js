@@ -67,13 +67,17 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     if(fuelLevel < 10000) {
       shuttleReady = false;
       document.getElementById("fuelStatus").innerHTML ="Fuel level too low for launch";
+    } else {
+      document.getElementById("fuelStatus").innerHTML ="Fuel level high enough for launch"
     }
     if(cargoLevel > 10000) {
       shuttleReady = false;
       document.getElementById("cargoStatus").innerHTML ="Cargo mass too heavy for launch";
+    } else {
+      document.getElementById("cargoStatus").innerHTML ="Cargo mass low enough for launch";
     }
 
-    if(fuelLevel > 10000 && cargoLevel < 10000) {
+    if(fuelLevel >= 10000 && cargoLevel <= 10000) {
       document.getElementById("fuelStatus").innerHTML = "Fuel level high enough for launch";
       document.getElementById("cargoStatus").innerHTML = "Cargo mass low enough for launch";
       shuttleReady = true;
