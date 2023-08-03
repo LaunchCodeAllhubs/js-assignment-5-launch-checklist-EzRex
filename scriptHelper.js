@@ -60,7 +60,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     pilotStatus.innerHTML= `Pilot ${pilot} is ready for launch`
     let coPilotStatus = document.getElementById("copilotStatus");
     coPilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`
-    
+    list.style.visibility = "hidden";
     launchStatus = document.getElementById("launchStatus");
     
     let shuttleReady;
@@ -82,12 +82,14 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     if(valid) {
       if(!shuttleReady) {
         list.style.visibility = "visible";
-        launchStatus.innerHTML = "Shuttle Not Ready for Launch";
         launchStatus.style.color = "#C7254E";
+        launchStatus.innerHTML = "Shuttle Not Ready for Launch";
+        
       } else {
         list.style.visibility = "hidden";
-        launchStatus.innerHTML = "Shuttle is Ready for Launch";
         launchStatus.style.color = 'rgb(65, 159, 106)'
+        launchStatus.innerHTML = "Shuttle is Ready for Launch";
+        
 
       }
     }
