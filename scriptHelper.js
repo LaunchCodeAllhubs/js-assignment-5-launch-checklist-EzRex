@@ -32,7 +32,8 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    let valid = true;;
+  list.style.visibility = "hidden";  
+  let valid = true;;
     //VALIDATION
     //let prevent;
     if(validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty") {
@@ -60,7 +61,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     pilotStatus.innerHTML= `Pilot ${pilot} is ready for launch`
     let coPilotStatus = document.getElementById("copilotStatus");
     coPilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
-    list.style.visibility = "hidden";
+    
     launchStatus = document.getElementById("launchStatus");
     
     let shuttleReady;
@@ -80,7 +81,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     }
 
     if(fuelLevel >= 10000 && cargoLevel <= 10000) {
-      list.style.visibility = "hidden";
+      list.style.visibility = "visible";
       document.getElementById("fuelStatus").innerHTML = "Fuel level high enough for launch";
       document.getElementById("cargoStatus").innerHTML = "Cargo mass low enough for launch";
       shuttleReady = true;
