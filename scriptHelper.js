@@ -59,24 +59,23 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let pilotStatus = document.getElementById("pilotStatus");
     pilotStatus.innerHTML= `Pilot ${pilot} is ready for launch`
     let coPilotStatus = document.getElementById("copilotStatus");
-    coPilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`
+    coPilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
     list.style.visibility = "hidden";
     launchStatus = document.getElementById("launchStatus");
     
     let shuttleReady;
     if(fuelLevel < 10000) {
       shuttleReady = false;
-      document.getElementById("fuelStatus").innerHTML = "Fuel level too low for launch"
-      //launchStatus.style.color = "RED";
+      document.getElementById("fuelStatus").innerHTML ="Fuel level too low for launch";
     }
     if(cargoLevel > 10000) {
       shuttleReady = false;
-      document.getElementById("cargoStatus").innerHTML = "Cargo mass too heavy for launch"
-      //launchStatus.style.color = "#C7254E";
+      document.getElementById("cargoStatus").innerHTML ="Cargo mass too heavy for launch";
     }
+
     if(fuelLevel > 10000 && cargoLevel < 10000) {
-      document.getElementById("fuelStatus").innerHTML = "Fuel level high enough for launch"
-      document.getElementById("cargoStatus").innerHTML = "Cargo mass low enough for launch"
+      document.getElementById("fuelStatus").innerHTML = "Fuel level high enough for launch";
+      document.getElementById("cargoStatus").innerHTML = "Cargo mass low enough for launch";
       shuttleReady = true;
     }
     if(valid) {
@@ -113,5 +112,3 @@ module.exports.validateInput = validateInput;
 module.exports.formSubmission = formSubmission;
 module.exports.pickPlanet = pickPlanet; 
 module.exports.myFetch = myFetch;
-
-console.log(validateInput(""));
