@@ -9,22 +9,10 @@ window.addEventListener("load", function() {
         let fuelLevel = document.querySelector("input[name=fuelLevel]");
         let cargoMass = document.querySelector("input[name=cargoMass]");
 
+        let faultyItems = document.getElementById('faultyItems');
 
-
-        if(validateInput(pilotName.value) === "Empty" || validateInput(coPilotName.value) === "Empty" || validateInput(fuelLevel.value) === "Empty" || validateInput(cargoMass.value) === "Empty") {
-            alert("Please input for all fields");
-            event.preventDefault();
-        }
-        if(validateInput(pilotName.value) === "Is a Number" || validateInput(coPilotName.value) === "Is a Number") {
-            alert("Please enter text for names");
-            event.preventDefault();
-        }
-        if(validateInput(fuelLevel.value) === "Not a Number" || validateInput(cargoMass.value) === "Not a Number") {
-            alert("Please enter numbers for fuel and cargo levels");
-            event.preventDefault();
-        }
-        formSubmission(document, pilotName.value, coPilotName.value, fuelLevel.value, cargoMass.value)
-        
+        formSubmission(document, faultyItems, pilotName.value, coPilotName.value, fuelLevel.value, cargoMass.value)
+        event.preventDefault();
     })
    let listedPlanets;
    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
